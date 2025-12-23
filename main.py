@@ -2,6 +2,7 @@ import argparse
 import importlib
 import os
 import sys
+from time import perf_counter
 
 def load_input(day: int, use_test: bool) -> 'list[str]':
     folder = f"day_{day}"
@@ -59,8 +60,11 @@ def main():
     lines = load_input(day, use_test)
 
     # Execute solution
+    start = perf_counter()
     result = func(lines)
-    print(result)
+    end = perf_counter()
+
+    print(f"{result}, {end - start:.6f}s")
 
 
 if __name__ == "__main__":

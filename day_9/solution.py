@@ -166,7 +166,7 @@ def part2(lines: 'list[str]'):
 
         for y in range(y_min, y_max + 1):
           inside = False
-          shape_ranges = set(shape_by_rows[y])
+          shape_ranges = shape_by_rows[y]
 
           for r in shape_ranges:
             if x_min >= r[0] and x_max <= r[1]:
@@ -183,6 +183,4 @@ def part2(lines: 'list[str]'):
           if area > max_area:
             max_area = area
 
-  return max_area # very inefficient but works
-        
-        
+  return max_area # around 100s runtime, but works
